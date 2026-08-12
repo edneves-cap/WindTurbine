@@ -1,0 +1,77 @@
+                ┌──────────────────────┐
+                │ External Data Sources│
+                └──────────┬───────────┘
+                           │
+        ┌──────────────────┼─────────────────┐
+        │                  │                 │
+        ▼                  ▼                 ▼
+
+   Wind Data         GIS Data         Population Data
+   ERA5              Elevation        Eurostat
+   NOAA              Land Use         Census
+   Wind Atlas        Grid Lines       Urban Areas
+
+                           │
+
+                    Ingestion Layer
+                           │
+
+               ┌───────────▼───────────┐
+               │ Amazon S3 Data Lake   │
+               └───────────┬───────────┘
+
+       ┌───────────────────┼──────────────────┐
+       │                   │                  │
+
+       ▼                   ▼                  ▼
+
+     Raw              Processed           Curated
+
+                           │
+
+                     AWS Glue ETL
+                           │
+
+                     Glue Catalog
+                           │
+
+                    Amazon Athena
+                           │
+         ┌─────────────────┼─────────────────┐
+         │                 │                 │
+
+         ▼                 ▼                 ▼
+
+  GIS Queries      Suitability Data     ML Features
+
+         │                 │                 │
+
+         └─────────────────┼─────────────────┘
+                           │
+
+                    SageMaker Models
+                           │
+
+      ┌────────────────────┼───────────────────┐
+      │                    │                   │
+
+      ▼                    ▼                   ▼
+
+ Suitability Model   Production Forecast   Risk Model
+
+                           │
+
+                    OpenSearch Vector
+                           │
+
+                       Bedrock
+                    GenAI Assistant
+
+                           │
+
+         ┌─────────────────┼────────────────┐
+         │                 │                │
+
+         ▼                 ▼                ▼
+
+  QuickSight      API Gateway + Lambda   Web App

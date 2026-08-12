@@ -1,0 +1,12 @@
+
+Import ->
+configuration describes desired infrastructure, state tracks what Tf currently manages. Import gets the services already on the AWS and allows to manage them.
+Import creates a relashionship between state and existing infrastructure.
+Import makes the resource manageable. Data source borrows the information.
+
+Count - resource list, results in an indexed list, a change of an element will result in a disturbance of the list. For each runs through keys.
+Both can turn the creation of a resource optional
+
+state vai sempre para backend (state no s3). Código sempre versionado.
+
+External YAML or JSON is useful when the varioation is data, not logic.

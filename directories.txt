@@ -1,0 +1,32 @@
+wind-placement-platform/
+
+├── terraform/
+│   ├── modules/
+│   │   ├── s3/
+│   │   ├── glue/
+│   │   ├── athena/
+│   │   ├── lambda/
+│   │   ├── sagemaker/
+│   │   ├── opensearch/
+│   │   └── api_gateway/
+│
+│   ├── environments/
+│   │   ├── dev/
+│   │   ├── test/
+│   │   └── prod/
+│
+│   └── main.tf
+│
+├── lambda/
+│
+├── ml/
+│   ├── training/
+│   ├── inference/
+│   └── tests/
+│
+├── data/
+│
+├── .github/
+│    └── workflows/
+│
+└── README.md
