@@ -115,7 +115,7 @@
             <mxPoint x="370" y="287" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="jMriO7-s494yFaROrJIc-19" connectable="0" parent="jMriO7-s494yFaROrJIc-18" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=none;fontSize=13;" value="Processes" vertex="1">
+        <mxCell id="jMriO7-s494yFaROrJIc-19" connectable="0" parent="jMriO7-s494yFaROrJIc-18" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=none;fontSize=13;fontColor=light-dark(#000000,#000000);" value="Processes" vertex="1">
           <mxGeometry relative="1" x="-0.1484" y="-4" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
@@ -138,7 +138,7 @@
             <mxPoint x="470" y="430" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="jMriO7-s494yFaROrJIc-33" connectable="0" parent="jMriO7-s494yFaROrJIc-32" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=13;labelBackgroundColor=none;" value="Monitors" vertex="1">
+        <mxCell id="jMriO7-s494yFaROrJIc-33" connectable="0" parent="jMriO7-s494yFaROrJIc-32" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=13;labelBackgroundColor=none;fontColor=light-dark(#000000,#000000);" value="Monitors" vertex="1">
           <mxGeometry relative="1" x="0.1187" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
