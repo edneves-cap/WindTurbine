@@ -138,7 +138,7 @@
             <mxPoint x="470" y="430" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="jMriO7-s494yFaROrJIc-33" connectable="0" parent="jMriO7-s494yFaROrJIc-32" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=13;" value="Monitors" vertex="1">
+        <mxCell id="jMriO7-s494yFaROrJIc-33" connectable="0" parent="jMriO7-s494yFaROrJIc-32" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=13;labelBackgroundColor=none;" value="Monitors" vertex="1">
           <mxGeometry relative="1" x="0.1187" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
