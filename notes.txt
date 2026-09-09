@@ -10,3 +10,5 @@ Both can turn the creation of a resource optional
 state vai sempre para backend (state no s3). Código sempre versionado.
 
 External YAML or JSON is useful when the varioation is data, not logic.
+
+BedRock Agent to validate SageMaker trainning (orchestrator)

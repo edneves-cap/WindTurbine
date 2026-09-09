@@ -1,0 +1,27 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - curl -fsSL https://releases.hashicorp.com/terraform/1.9.8/terraform_1.9.8_linux_amd64.zip -o /tmp/terraform.zip
+      - unzip -o /tmp/terraform.zip -d /usr/local/bin
+  pre_build:
+    commands:
+      - test "$TF_ENV" = "dev" || test "$TF_ENV" = "prod"
+      - cd terraform
+      - terraform init -input=false -backend-config="bucket=$TF_STATE_BUCKET" -backend-config="key=$TF_ENV/terraform.tfstate" -backend-config="region=$AWS_DEFAULT_REGION"
+      - terraform validate
+  build:
+    commands:
+      - terraform plan -input=false -var-file="environments/$TF_ENV/terraform.tfvars" -var="environment=$TF_ENV" -var="app_version=$CODEBUILD_RESOLVED_SOURCE_VERSION" -out=tfplan
+      - terraform apply -input=false -auto-approve tfplan
+  post_build:
+    commands:
+      - terraform output -json > terraform-outputs.json
+      - test -s terraform-outputs.json
+      - test -n "$(terraform state list)"
+
+artifacts:
+  files:
+    - terraform/tfplan
+    - terraform/terraform-outputs.json

@@ -1,0 +1,4 @@
+bucket_name: "windmill-pred-data"
+region: "us-east-1"
+source: "../data/ine"
+prefix: "raw/"

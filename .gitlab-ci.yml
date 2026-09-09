@@ -1,0 +1,44 @@
+image: hashicorp/terraform:1.5.7
+
+variables:
+  TF_ROOT: "terraform"
+
+stages:
+  - validate
+  - plan
+
+validate:
+  stage: validate
+  script:
+    - cd "$TF_ROOT"
+    - terraform init -backend=false -input=false
+    - terraform fmt -check -recursive
+    - terraform validate
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH == "dev"
+    - if: $CI_COMMIT_BRANCH == "test"
+    - if: $CI_COMMIT_BRANCH == "prod"
+    - if: $CI_COMMIT_BRANCH == "main"
+    - if: $CI_COMMIT_TAG
+
+plan:
+  stage: plan
+  script:
+    - cd "$TF_ROOT"
+    - terraform init -backend=false -input=false
+      - |
+        if [ "$CI_COMMIT_BRANCH" = "main" ]; then
+          TARGET_ENV=prod
+        else
+          TARGET_ENV=dev
+        fi
+        terraform plan -refresh=false -input=false -var-file="environments/$TARGET_ENV/terraform.tfvars" -var="environment=$TARGET_ENV" -var="app_version=$CI_COMMIT_SHA" -out=tfplan
+    - terraform show -no-color tfplan > plan.out || true
+  artifacts:
+    paths:
+      - terraform/plan.out
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH == "dev"
+    - if: $CI_COMMIT_BRANCH == "main"
